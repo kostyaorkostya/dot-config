@@ -30,6 +30,14 @@ export LC_TELEPHONE="en_US.UTF-8"
 export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
+# Set up pyenv. Some Homebrew packages, like ffmpeg, require Python3.xx as a dependency, this is
+# sad as Homebrew will add all packages to the PATH by default, thus shadowing Python3 installation
+# provided by defaul. pyenv looks like a nice way of managing Python envoronments.
+
+export PYENV_ROOT="${HOME}/.pyenv"
+[[ -d ${PYENV_ROOT}/bin ]] && export PATH="${PYENV_ROOT}/bin:${PATH}"
+eval "$(pyenv init -)"
+
 # Vim -> NeoVim; probably only on MacOS, though
 
 export EDITOR=/opt/homebrew/bin/nvim
