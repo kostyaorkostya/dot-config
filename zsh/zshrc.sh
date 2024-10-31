@@ -14,7 +14,6 @@ export DISABLE_AUTO_TITLE="true"
 
 source $ZSH/oh-my-zsh.sh
 
-
 # Personal configs
 
 export LANG=en_US.UTF-8
@@ -31,10 +30,21 @@ export LC_TELEPHONE="en_US.UTF-8"
 export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
-export EDITOR=vim
-export SVN_EDITOR=vim
-export HISTSIZE=100000
+# Vim -> NeoVim; probably only on MacOS, though
+
+export EDITOR=/opt/homebrew/bin/nvim
+export SVN_EDITOR=/opt/homebrew/bin/nvim
+alias vim='/opt/homebrew/bin/nvim'
+alias vi='/opt/homebrew/bin/nvim'
+
+# Shell history size
+
+export HISTSIZE=1000000
+
+# Disable Homebrew analytics
 
 export HOMEBREW_NO_ANALYTICS=1
+
+# Cleanup
 
 unset PLATFORM
