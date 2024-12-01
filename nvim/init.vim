@@ -8,7 +8,9 @@ let &packpath = &runtimepath
 " $ pyenv virtualenv 3.13 py3nvim
 " $ pyenv activate py3nvim
 " $ python3 -m pip install --upgrade pip
+" $ python3 -m pip install setuptools
 " $ python3 -m pip install pynvim
+" $ python3 -m pip install MacFSEvents
 " $ pyenv which python
 let g:python3_host_prog = '/Users/kostya/.pyenv/versions/py3nvim/bin/python'
 
