@@ -372,6 +372,7 @@ autocmd FileType c,cpp,python,rust nnoremap <buffer> gd :YcmCompleter GoToDeclar
 autocmd FileType c,cpp,python,rust nnoremap <buffer> gD :YcmCompleter GoToDefinition<CR>
 autocmd FileType c,cpp,python,rust nnoremap <buffer> <F10> :YcmDiags<CR>
 autocmd FileType c,cpp,python,rust nnoremap <buffer> <C-h> :YcmCompleter GetDoc<CR>
+autocmd FileType c,cpp,python,rust nnoremap <buffer> [] :YcmCompleter GetType<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               UltiSnips                                 "
