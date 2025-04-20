@@ -261,16 +261,6 @@ let g:netrw_liststyle=3
 "                           More involved tweaks                          "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Unicode support (taken from http://vim.wikia.com/wiki/Working_with_Unicode)
-if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,latin1
-endif
-
 augroup vimrc
   " Automatically delete trailing DOS-returns and whitespace on file open and
   " write.
