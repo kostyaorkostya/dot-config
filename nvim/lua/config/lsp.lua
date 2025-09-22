@@ -8,11 +8,11 @@ vim.lsp.config('lua_ls', {
                 version = 'LuaJIT',
             },
             diagnostics = {
-                globals = { 'vim' },  -- Recognize vim global
+                globals = { 'vim' }, -- Recognize vim global
             },
             workspace = {
-                library = vim.api.nvim_get_runtime_file('', true),  -- Neovim runtime files
-                checkThirdParty = false,  -- Disable annoying prompts
+                library = vim.api.nvim_get_runtime_file('', true), -- Neovim runtime files
+                checkThirdParty = false,                           -- Disable annoying prompts
             },
         }
     }
@@ -22,7 +22,7 @@ vim.lsp.config('rust_analyzer', {
     settings = {
         ['rust-analyzer'] = {
             diagnostics = {
-                enable = true;
+                enable = true,
             },
             imports = {
                 granularity = {

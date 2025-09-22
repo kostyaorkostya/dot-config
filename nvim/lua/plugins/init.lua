@@ -52,7 +52,7 @@ return {
         },
         config = function()
             require('mason').setup({
-                ensure_installed = { 'rustfmt', 'clang-format' , 'buf' , 'shellcheck' }
+                ensure_installed = { 'rustfmt', 'clang-format' , 'buf' , 'shellcheck' , 'stylua', 'black'}
             })
             require('mason-lspconfig').setup({
                 ensure_installed = { 'rust_analyzer' , 'clangd', 'bzl' , 'lua_ls' }
@@ -142,6 +142,23 @@ return {
                 },
                 indent = {
                     enable = true,  -- Treesitter-based indentation
+                },
+            })
+        end,
+    },
+    {
+        'stevearc/conform.nvim',
+        config = function()
+            require('conform').setup({
+                formatters_by_ft = {
+                    lua = { 'stylua' },
+                    rust = { 'rustfmt' },
+                    python = { 'black' },
+                    cpp = { 'clang-format' },
+                },
+                format_on_save = {
+                    timeout_ms = 500,
+                    lsp_fallback = true,
                 },
             })
         end,
