@@ -1,13 +1,56 @@
 return {
+    --    {
+    --        "Tsuzat/NeoSolarized.nvim",
+    --        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    --        priority = 1000, -- make sure to load this before all the other start plugins
+    --        config = function()
+    --            vim.cmd.colorscheme('NeoSolarized')
+    --            require('NeoSolarized').setup({
+    --                style = 'dark',
+    --                transparent = false,
+    --                enable_italics = false,
+    --            })
+    --        end
+    --    },
+    --{
+    --    'shaunsingh/solarized.nvim',
+    --   config = function()
+    --      vim.cmd.colorscheme('solarized')
+    -- end
+    --},
     {
         'maxmx03/solarized.nvim',
         lazy = false,
         priority = 1000,
         ---@type solarized.config
-        opts = {},
+        opts = {
+            palette = 'selenized',
+            error_lens = {
+                text = true,
+                symbol = true,
+            },
+            on_highlights = function(colors, color)
+                local darken = color.darken
+                local lighten = color.lighten
+                local blend = color.blend
+                local shade = color.shade
+                local tint = color.tint
+
+                ---@type solarized.highlights
+                local groups = {
+                    Visual = { bg = colors.base02, standout = true },
+                    Function = { fg = colors.yellow },
+                    IncSearch = { fg = colors.orange, bg = colors.mix_orange },
+                    Search = { fg = colors.violet, bg = shade(colors.violet, 5) },
+                    NormalFloat = { bg = darken(colors.base03, 25) }
+                }
+
+                return groups
+            end
+        },
         config = function(_, opts)
-            require('solarized').setup(opts)
             vim.cmd.colorscheme 'solarized'
+            require('solarized').setup(opts)
         end,
     },
     {
@@ -15,8 +58,7 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
             options = {
-                theme = 'solarized_dark',
-                -- lsp_status?
+                theme = 'solarized',
             },
             sections = {
                 lualine_c = {

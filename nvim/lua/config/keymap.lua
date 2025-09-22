@@ -1,5 +1,3 @@
-vim.keymap.set('n', '<F4>', vim.cmd.Lexplore)
-
 vim.keymap.set('n', '<F8>', vim.cmd.tabnext)
 vim.keymap.set('i', '<F8>', function()
     vim.cmd.stopinsert()
