@@ -14,7 +14,7 @@ vim.keymap.set('i', '<F7>', function()
     vim.cmd.startinsert()
 end)
 
-vim.keymap.set('n', '<F8>', vim.cmd.TagbarToggle)
+vim.keymap.set('n', '<F9>', vim.cmd.TagbarToggle)
 
 -- this makes vim's regex engine "not stupid"
 -- see :h magic

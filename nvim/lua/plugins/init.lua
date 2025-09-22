@@ -37,7 +37,7 @@ return {
         'akinsho/bufferline.nvim',
         opts = {
             options = {
-                mode = 'tabs',  -- Show tabs instead of buffers
+                mode = 'tabs', -- Show tabs instead of buffers
             },
         },
     },
@@ -52,10 +52,10 @@ return {
         },
         config = function()
             require('mason').setup({
-                ensure_installed = { 'rustfmt', 'clang-format' , 'buf' , 'shellcheck' , 'stylua', 'black'}
+                ensure_installed = { 'rustfmt', 'clang-format', 'buf', 'shellcheck', 'stylua', 'black' }
             })
             require('mason-lspconfig').setup({
-                ensure_installed = { 'rust_analyzer' , 'clangd', 'bzl' , 'lua_ls' }
+                ensure_installed = { 'rust_analyzer', 'clangd', 'bzl', 'lua_ls' }
             })
         end
     },
@@ -106,7 +106,7 @@ return {
                     side = 'left',
                 },
                 renderer = {
-                    group_empty = true,  -- Compact empty folders
+                    group_empty = true, -- Compact empty folders
                     icons = {
                         show = {
                             git = true,
@@ -116,34 +116,18 @@ return {
                     },
                 },
                 filters = {
-                    dotfiles = false,  -- Show hidden files
+                    dotfiles = false, -- Show hidden files
                     custom = { '.git', 'node_modules', '.cache' },
                 },
                 actions = {
                     open_file = {
-                        quit_on_open = true,  -- Close tree when opening file
+                        quit_on_open = true, -- Close tree when opening file
                     },
                 },
             })
 
             -- Keymaps
             vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
-        end,
-    },
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-        config = function()
-            require('nvim-treesitter.configs').setup({
-                ensure_installed = { 'rust', 'cpp', 'c', 'python', 'ocaml', 'lua', 'vim', 'vimdoc' },
-                auto_install = true,  -- Auto-install missing parsers when entering buffer
-                highlight = {
-                    enable = true,
-                },
-                indent = {
-                    enable = true,  -- Treesitter-based indentation
-                },
-            })
         end,
     },
     {
