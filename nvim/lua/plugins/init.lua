@@ -20,8 +20,6 @@ return {
     --},
     {
         'maxmx03/solarized.nvim',
-        lazy = false,
-        priority = 1000,
         ---@type solarized.config
         opts = {
             palette = 'selenized',
@@ -47,11 +45,7 @@ return {
 
                 return groups
             end
-        },
-        config = function(_, opts)
-            vim.cmd.colorscheme 'solarized'
-            require('solarized').setup(opts)
-        end,
+        }
     },
     {
         'nvim-lualine/lualine.nvim',
@@ -83,23 +77,47 @@ return {
             },
         },
     },
-    { 'preservim/tagbar' },
+    {
+        'preservim/tagbar',
+        keys = {
+            { '<F9>', vim.cmd.TagbarToggle }
+        }
+
+    },
     { 'mhinz/vim-startify' },
     { 'rust-lang/rust.vim' },
+    {
+        'williamboman/mason.nvim',
+        opts = {
+            ensure_installed = {
+                'black',
+                'buf',
+                'clang-format',
+                'rustfmt',
+                'shellcheck',
+                'shfmt',
+                'stylua',
+            }
+        }
+    },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
+            ensure_installed = {
+                'bzl',
+                'clangd',
+                'lua_ls',
+                'rust_analyzer',
+            }
+        }
+    },
+
     {
         'neovim/nvim-lspconfig',
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
         },
-        config = function()
-            require('mason').setup({
-                ensure_installed = { 'rustfmt', 'clang-format', 'buf', 'shellcheck', 'stylua', 'black' }
-            })
-            require('mason-lspconfig').setup({
-                ensure_installed = { 'rust_analyzer', 'clangd', 'bzl', 'lua_ls' }
-            })
-        end
     },
     {
         -- shows LSP progress
@@ -118,9 +136,9 @@ return {
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
         },
-        config = function()
+        opts = function()
             local cmp = require('cmp')
-            cmp.setup({
+            return {
                 snippet = {
                     expand = function(args)
                         require('luasnip').lsp_expand(args.body)
@@ -135,58 +153,54 @@ return {
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                 },
-            })
+            }
         end,
     },
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require('nvim-tree').setup({
-                view = {
-                    width = 30,
-                    side = 'left',
-                },
-                renderer = {
-                    group_empty = true, -- Compact empty folders
-                    icons = {
-                        show = {
-                            git = true,
-                            folder = true,
-                            file = true,
-                        },
+        keys = {
+            { '<leader>e', '<cmd>NvimTreeToggle<cr>' }
+        },
+        opts = {
+            view = {
+                width = 30,
+                side = 'left',
+            },
+            renderer = {
+                group_empty = true, -- Compact empty folders
+                icons = {
+                    show = {
+                        git = true,
+                        folder = true,
+                        file = true,
                     },
                 },
-                filters = {
-                    dotfiles = false, -- Show hidden files
-                    custom = { '.git', 'node_modules', '.cache' },
+            },
+            filters = {
+                dotfiles = false, -- Show hidden files
+                custom = { '.git', 'node_modules', '.cache' },
+            },
+            actions = {
+                open_file = {
+                    quit_on_open = true, -- Close tree when opening file
                 },
-                actions = {
-                    open_file = {
-                        quit_on_open = true, -- Close tree when opening file
-                    },
-                },
-            })
-
-            -- Keymaps
-            vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
-        end,
+            },
+        }
     },
     {
         'stevearc/conform.nvim',
-        config = function()
-            require('conform').setup({
-                formatters_by_ft = {
-                    lua = { 'stylua' },
-                    rust = { 'rustfmt' },
-                    python = { 'black' },
-                    cpp = { 'clang-format' },
-                },
-                format_on_save = {
-                    timeout_ms = 500,
-                    lsp_fallback = true,
-                },
-            })
-        end,
+        otps = {
+            formatters_by_ft = {
+                lua = { 'stylua' },
+                rust = { 'rustfmt' },
+                python = { 'black' },
+                cpp = { 'clang-format' },
+            },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
+        }
     }
 }

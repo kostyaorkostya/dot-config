@@ -12,8 +12,6 @@ vim.keymap.set('i', '<F7>', function()
     vim.cmd.startinsert()
 end)
 
-vim.keymap.set('n', '<F9>', vim.cmd.TagbarToggle)
-
 -- this makes vim's regex engine "not stupid"
 -- see :h magic
 vim.keymap.set('n', '/', '/\\v')
@@ -21,6 +19,3 @@ vim.keymap.set('v', '/', '/\\v')
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist) -- All diagnostics in quickfix
-
-
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
