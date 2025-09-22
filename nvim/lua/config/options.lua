@@ -1,4 +1,5 @@
 vim.opt.background = 'dark' -- enable for dark terminals
+vim.opt.termguicolors = true
 vim.opt.scrolloff = 5 -- 2 lines above/below cursor when scrolling
 vim.opt.showmatch = true -- show matching bracket (briefly jump)
 vim.opt.matchtime = 2 -- reduces matching paren blink time from the 5[00]ms def
@@ -7,7 +8,7 @@ vim.opt.showcmd = true -- show mode in status bar (insert/replace/...)
 vim.opt.ruler = true -- show cursor position in status bar
 vim.opt.title = true -- show file in titlebar
 vim.opt.cursorline = true -- highlights the current line
-vim.opt.winaltkeys = false -- turns of the Alt key bindings to the gui menu
+vim.opt.winaltkeys = 'no' -- turns of the Alt key bindings to the gui menu
 
 -- When you type the first tab, it will complete as much as possible, the second
 -- tab hit will provide a list, the third and subsequent tabs will cycle through
@@ -15,7 +16,7 @@ vim.opt.winaltkeys = false -- turns of the Alt key bindings to the gui menu
 vim.opt.wildmode = { 'longest', 'list', 'full' }
 vim.opt.wildmenu = true -- completion with menu
 -- This changes the default display of tab and CR chars in list mode
-vim.opt.listchars = { tab = '▸\ ' , eol = '¬' }
+vim.opt.listchars = { tab = '→→' , trail = '·' }
 
 -- The "longest" option makes completion insert the longest prefix of all
 -- the possible matches; see :h completeopt
@@ -44,8 +45,8 @@ vim.opt.laststatus = 2 -- the statusline is now always shown
 vim.opt.showmode = true -- don't show the mode ("-- INSERT --") at the bottom
 
 -- misc settings
-vim.opt.filetype = 'unix' -- file mode is unix
-vim.opt.fileformat = { 'unix', 'dos', 'mac' } -- detects unix, dos, mac file formats in that order
+vim.opt.fileformat = 'unix' -- file mode is unix
+vim.opt.fileformats = 'unix,dos,mac' -- detects unix, dos, mac file formats in that order
 vim.opt.shada = {
   "'20",     -- Remember marks for last 20 files
   '"500',    -- Remember up to 500 lines for each register
@@ -53,13 +54,12 @@ vim.opt.shada = {
 vim.opt.hidden = true -- allows making buffers hidden even with unsaved changes
 vim.opt.history = 1000 -- remember more commands and search history
 vim.opt.undolevels = 1000 -- use many levels of undo
-vim.opt.autoread true -- auto read when a file is changed from the outside
+vim.opt.autoread = true -- auto read when a file is changed from the outside
 vim.opt.foldlevel = 99 -- all folds open by default
 
 vim.opt.splitright = true
 vim.opt.number = true
 vim.opt.list = true
-vim.opt.listchars = { trail = '·', tag = '→→' }
 
 -- tries to avoid those annoying "hit enter to continue" messages
 -- if it still doesn't help with certain commands, add a second <cr>
@@ -70,7 +70,7 @@ vim.opt.shortmess = 'a'
 vim.opt.iskeyword = { '_', '$', '@', '%', '#' }
 
 -- allow backspace and cursor keys to cross line boundaries
-im.opt.whichwrap:append({
+vim.opt.whichwrap:append({
   ["<"] = true,  -- Left arrow key in Normal/Visual mode
   [">"] = true,  -- Right arrow key in Normal/Visual mode
   h = true,      -- h key in Normal/Visual mode
