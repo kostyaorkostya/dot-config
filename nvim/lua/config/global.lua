@@ -1,3 +1,5 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 -- this makes sure that shell scripts are highlighted
 -- as bash scripts and not sh scripts
 vim.g.is_posix = true

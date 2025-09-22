@@ -1,8 +1,3 @@
 return {
-    {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "solarized",
-        }
-    }
+  { "folke/lazy.nvim", version = false },
 }

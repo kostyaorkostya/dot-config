@@ -15,46 +15,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        -- import your plugins
-        { import = "plugins" },
-        -- Add treesitter directly here
-        {
-            "nvim-treesitter/nvim-treesitter",
-            build = ":TSUpdate",
-            config = function()
-                local configs = require("nvim-treesitter.configs")
-
-                configs.setup({
-                    ensure_installed = {
-                        'c',
-                        'cpp',
-                        'rust',
-                        'python',
-                        'ocaml',
-                        'lua',
-                        'vim',
-                        'vimdoc',
-                        'query',
-                        'javascript',
-                        'html'
-                    },
-                    sync_install = false,
-                    highlight = { enable = true },
-                    indent = { enable = true },
-                })
-            end
-        }
+        { import = 'plugins' },
     },
-    -- Configure any other settings here
-    -- install = { colorscheme = { 'solarized' } },
+    defaults = {
+        lazy = false,
+        version = false,
+    },
     checker = { enabled = true },
 })
