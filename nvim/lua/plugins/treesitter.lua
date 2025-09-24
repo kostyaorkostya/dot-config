@@ -17,6 +17,7 @@ return {
         'query',
         'javascript',
         'html',
+        'tmux',
       },
       sync_install = false,
       highlight = { enable = true },

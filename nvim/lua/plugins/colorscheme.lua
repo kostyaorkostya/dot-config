@@ -4,7 +4,7 @@ return {
   priority = 1000, -- make sure it's loaded before anythign else
   ---@type solarized.config
   opts = {
-    palette = 'selenized',
+    palette = 'solarized',
     error_lens = {
       text = true,
       symbol = true,
