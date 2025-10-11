@@ -9,7 +9,7 @@ return {
       lualine_c = {
         {
           'filename',
-          path = 3, -- 3: Absolute path, with tilde as the home directory
+          path = 1,
         },
       },
       lualine_y = {
