@@ -16,19 +16,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Personal configs
 
-export LANG=en_US.UTF-8
-export LC_CTYPE="en_US.UTF-8"
-export LC_NUMERIC="C"
-export LC_TIME="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_PAPER="en_US.UTF-8"
-export LC_NAME="en_US.UTF-8"
-export LC_ADDRESS="en_US.UTF-8"
-export LC_TELEPHONE="en_US.UTF-8"
-export LC_MEASUREMENT="en_US.UTF-8"
-export LC_IDENTIFICATION="en_US.UTF-8"
+export LANG=C.UTF-8
+export LC_TIME="en_DK.UTF-8"
 
 # Set up pyenv. Some Homebrew packages, like ffmpeg, require Python3.xx as a dependency, this is
 # sad as Homebrew will add all packages to the PATH by default, thus shadowing Python3 installation
