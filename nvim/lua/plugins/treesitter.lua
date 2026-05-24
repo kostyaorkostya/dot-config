@@ -1,5 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'master',
   build = ':TSUpdate',
   config = function()
     local configs = require('nvim-treesitter.configs')
@@ -16,6 +17,7 @@ return {
         'python',
         'query',
         'rust',
+        'starlark',
         'tmux',
         'vim',
         'vimdoc',

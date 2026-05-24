@@ -1,4 +1,11 @@
 vim.lsp.config('lua_ls', {
+  -- Override the default cmd so the server writes its log/cache under
+  -- $XDG_CACHE_HOME, not next to its (read-only) install dir under /opt.
+  cmd = {
+    'lua-language-server',
+    '--logpath',
+    vim.fn.stdpath('cache') .. '/lua-language-server',
+  },
   -- Specific settings to send to the server. The schema for this is
   -- defined by the server. For example the schema for lua-language-server
   -- can be found here https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
@@ -40,18 +47,5 @@ vim.lsp.config('rust_analyzer', {
         enable = true,
       },
     },
-  },
-})
-
-vim.lsp.config('python', {
-  cmd = { 'zuban', 'server' },
-  filetypes = { 'python' },
-  root_markers = {
-    'pyproject.toml',
-    'setup.py',
-    'setup.cfg',
-    'requirements.txt',
-    'Pipfile',
-    '.git',
   },
 })
