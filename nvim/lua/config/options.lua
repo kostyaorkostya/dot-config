@@ -19,9 +19,10 @@ vim.opt.wildmode = { 'longest', 'list', 'full' }
 -- This changes the default display of tab and CR chars in list mode
 vim.opt.listchars = { tab = '→→', trail = '·' }
 
--- The "longest" option makes completion insert the longest prefix of all
--- the possible matches; see :h completeopt
-vim.opt.completeopt = { 'menu', 'menuone', 'longest' }
+vim.opt.autocomplete = true
+-- 'omnifunc' is the LSP's while one is attached; then words from this buffer, other windows, other buffers
+vim.opt.complete = { 'o^10', '.^5', 'w^5', 'b^5' }
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.opt.switchbuf = { 'useopen', 'usetab' }
 
 -- EDITOR SETTINGS

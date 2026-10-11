@@ -4,5 +4,3 @@ for server, exe in pairs(tools.lsp_servers) do
     vim.lsp.enable(server)
   end
 end
-
-require('fidget').setup({})
