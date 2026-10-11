@@ -7,13 +7,6 @@ printf 'Copying default Tmux config...\n'
 cp -f "${DIR}/tmux-common.conf" "${HOME}/.tmux.conf"
 printf 'Copying default Tmux config...DONE\n'
 
-PLATFORM="$(uname)"
-if [[ "${PLATFORM}" == *Darwin* ]]; then
-    printf 'Configuring Tmux for Mac OS X...\n'
-    cat "${DIR}/tmux-mac-osx.conf" >> "${HOME}/.tmux.conf"
-    printf 'Configuring Tmux for Mac OS X...DONE\n'
-fi
-
-if { [ "${TERM}" = 'screen' ] && [ -n "${TMUX}" ]; } then
-    tmux source-file $HOME/.tmux.conf > /dev/null
+if [ -n "${TMUX}" ]; then
+    tmux source-file "${HOME}/.tmux.conf" > /dev/null
 fi
