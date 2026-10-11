@@ -26,6 +26,7 @@ vim.pack.add({
   gh('rust-lang/rust.vim'),
   gh('folke/which-key.nvim'),
   gh('ibhagwan/fzf-lua'),
+  gh('lewis6991/gitsigns.nvim'),
 }, { confirm = false })
 
 for _, name in ipairs({
@@ -37,6 +38,7 @@ for _, name in ipairs({
   'tagbar',
   'which-key',
   'fzf',
+  'gitsigns',
 }) do
   require('plugins.' .. name)
 end
