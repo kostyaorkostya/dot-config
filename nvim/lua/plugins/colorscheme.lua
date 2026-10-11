@@ -8,7 +8,6 @@ require('solarized').setup({
     local darken = color.darken
     local shade = color.shade
 
-    ---@type solarized.highlights
     local groups = {
       Visual = { bg = colors.base02, standout = true },
       Function = { fg = colors.yellow },
