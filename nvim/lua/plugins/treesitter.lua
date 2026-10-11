@@ -1,30 +1,21 @@
-return {
-  'nvim-treesitter/nvim-treesitter',
-  branch = 'master',
-  build = ':TSUpdate',
-  config = function()
-    local configs = require('nvim-treesitter.configs')
-
-    configs.setup({
-      ensure_installed = {
-        'c',
-        'cpp',
-        'html',
-        'javascript',
-        'lalrpop',
-        'lua',
-        'ocaml',
-        'python',
-        'query',
-        'rust',
-        'starlark',
-        'tmux',
-        'vim',
-        'vimdoc',
-      },
-      sync_install = false,
-      highlight = { enable = true },
-      indent = { enable = true },
-    })
-  end,
-}
+require('nvim-treesitter.configs').setup({
+  ensure_installed = {
+    'c',
+    'cpp',
+    'html',
+    'javascript',
+    'lalrpop',
+    'lua',
+    'ocaml',
+    'python',
+    'query',
+    'rust',
+    'starlark',
+    'tmux',
+    'vim',
+    'vimdoc',
+  },
+  sync_install = #vim.api.nvim_list_uis() == 0,
+  highlight = { enable = true },
+  indent = { enable = true },
+})

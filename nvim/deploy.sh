@@ -18,6 +18,7 @@ printf 'Copying new Neovim config...\n'
 mkdir -p "${TARGET}"
 cp "${DIR}/init.lua" "${TARGET}/init.lua"
 cp -r "${DIR}/lua" "${TARGET}/lua"
+cp "${DIR}/nvim-pack-lock.json" "${TARGET}/nvim-pack-lock.json"
 printf 'Copying new Neovim config...DONE\n'
 
 # Note: nvim-treesitter's :TSUpdate build step needs a C compiler and the
@@ -25,5 +26,5 @@ printf 'Copying new Neovim config...DONE\n'
 # parsers fail silently and the rest of the sync (and this script) still
 # succeed.
 printf 'Installing Neovim plugins...\n'
-nvim --headless "+Lazy! sync" "+qa!"
+nvim --headless "+lua vim.pack.update(nil, { force = true, target = 'lockfile' })" "+TSUpdateSync" "+qa!"
 printf 'Installing Neovim plugins...DONE\n'

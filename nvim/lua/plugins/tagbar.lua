@@ -1,6 +1,1 @@
-return {
-  'preservim/tagbar',
-  keys = {
-    { '<F9>', vim.cmd.TagbarToggle, desc = 'Tagbar' },
-  },
-}
+vim.keymap.set('n', '<F9>', vim.cmd.TagbarToggle, { desc = 'Tagbar' })
