@@ -17,10 +17,10 @@ INSTALL_PREFIX=''
 while [ $# -gt 0 ]; do
   case "$1" in
     -h)
-      usage $0
+      usage "$0"
       ;;
     --help)
-      usage $0
+      usage "$0"
       ;;
     -p)
       INSTALL_PREFIX="$2"
@@ -32,7 +32,7 @@ while [ $# -gt 0 ]; do
       ;;
     -*)
       printf 'Error: Unknown option "%s".\n' "$1" >&2
-      usage $0
+      usage "$0"
       ;;
     *)
       break
@@ -43,13 +43,10 @@ done
 
 if [[ -z "${INSTALL_PREFIX}" ]]; then
   printf 'Error: "{-p|--prefix}" is required.\n' >&2
-  usage $0
+  usage "$0"
 fi
 
-INSTALL_PREFIX=$(echo "$(
-  cd "${INSTALL_PREFIX}"
-  pwd
-)")
+INSTALL_PREFIX="$(cd "${INSTALL_PREFIX}" && pwd)"
 
 PLATFORM=$(uname)
 
@@ -188,4 +185,5 @@ build_tmux "${TMUX_SOURCE_DIR}" "${INSTALL_PREFIX}" "${MAKE_TOOL}"
 
 ## Give direction on how to start using it.
 
+# shellcheck disable=SC2016
 printf '\nAdd "%s/bin" to your $PATH to use this Tmux binary by default.\n' "${INSTALL_PREFIX}"

@@ -2,6 +2,7 @@ PLATFORM="$(uname)"
 if [[ "${PLATFORM}" == *Darwin* ]]; then
   PS1='me@yazevnul-mac:\W\$ '
 else
+  # shellcheck disable=SC2154
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 
