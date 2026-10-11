@@ -5,7 +5,7 @@ TL;DR
 -----
 
 ```bash
-bash -c "$(curl -fSs https://raw.githubusercontent.com/yazevnul/dot-config/master/remote_deploy.sh)"
+bash -c "$(curl -fSs https://raw.githubusercontent.com/kostyaorkostya/dot-config/main/remote_deploy.sh)"
 ```
 
 Deployment

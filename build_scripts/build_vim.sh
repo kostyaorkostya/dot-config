@@ -137,7 +137,7 @@ build_vim() {
     local install_prefix=$2
     local make_tool=$3
 
-    local compiled_by_line='Kostya Bazhanov. See https://github.com/yazevnul/dot-config/tree/master/build_scripts/build_vim.sh for details.'
+    local compiled_by_line='Kostya Bazhanov. See https://github.com/kostyaorkostya/dot-config/blob/main/build_scripts/build_vim.sh for details.'
 
     cd "${source_dir}"
     CPPFLAGS="-I${install_prefix}/include" \
