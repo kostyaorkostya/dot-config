@@ -7,3 +7,4 @@ vim.keymap.set({ 'n', 'x', 'o' }, '/', '/\\v')
 
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics under cursor' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'All diagnostics to location list' })
+vim.keymap.set('n', '<leader>u', '<Cmd>Undotree<CR>', { desc = 'Undo tree' })

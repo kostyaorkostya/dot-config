@@ -50,6 +50,16 @@ vim.opt.shada = {
   'r/private/',
 }
 vim.opt.foldlevel = 99 -- all folds open by default
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.winborder = 'rounded'
+
+vim.diagnostic.config({
+  virtual_text = true,
+  severity_sort = true,
+})
+
+vim.cmd.packadd('nvim.undotree')
 
 vim.opt.splitright = true
 vim.opt.number = true
