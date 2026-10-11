@@ -9,6 +9,11 @@ vim.opt.ruler = true -- show cursor position in status bar
 vim.opt.title = true -- show file in titlebar
 vim.opt.cursorline = true -- highlights the current line
 vim.opt.winaltkeys = 'no' -- turns of the Alt key bindings to the gui menu
+vim.opt.clipboard = 'unnamedplus' -- plain y/p go through the clipboard provider
+-- inside tmux use its buffers (and OSC52 to the outer terminal) even where pbcopy/xclip exist
+if vim.env.TMUX then
+  vim.g.clipboard = 'tmux'
+end
 
 -- When you type the first tab, it will complete as much as possible, the second
 -- tab hit will provide a list, the third and subsequent tabs will cycle through
