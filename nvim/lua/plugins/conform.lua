@@ -1,7 +1,7 @@
 local tools = require('dotconfig.tools')
 local formatters_by_ft = {}
 for ft, spec in pairs(tools.formatters) do
-  if tools.present(spec.exe, 'conform') then
+  if tools.present(spec.exe) then
     formatters_by_ft[ft] = { spec.name }
   end
 end

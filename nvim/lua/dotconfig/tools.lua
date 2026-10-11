@@ -15,12 +15,8 @@ M.formatters = {
   cpp = { name = 'clang-format', exe = 'clang-format' },
 }
 
-function M.present(exe, where)
-  if vim.fn.executable(exe) == 1 then
-    return true
-  end
-  vim.notify(('%s: skipping (executable %q not on PATH)'):format(where, exe), vim.log.levels.INFO)
-  return false
+function M.present(exe)
+  return vim.fn.executable(exe) == 1
 end
 
 return M

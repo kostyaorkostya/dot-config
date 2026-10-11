@@ -14,11 +14,8 @@ vim.lsp.config('lua_ls', {
       runtime = {
         version = 'LuaJIT',
       },
-      diagnostics = {
-        globals = { 'vim' }, -- Recognize vim global
-      },
       workspace = {
-        library = vim.api.nvim_get_runtime_file('', true), -- Neovim runtime files
+        library = { vim.env.VIMRUNTIME },
         checkThirdParty = false, -- Disable annoying prompts
       },
     },

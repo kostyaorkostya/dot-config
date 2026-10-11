@@ -18,7 +18,7 @@ require('nvim-tree').setup({
   },
   filters = {
     dotfiles = false, -- Show hidden files
-    custom = { '.git', 'node_modules', '.cache' },
+    custom = { '^\\.git$', '^node_modules$', '^\\.cache$' },
   },
   actions = {
     open_file = {
