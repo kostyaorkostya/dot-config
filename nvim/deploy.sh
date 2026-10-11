@@ -21,10 +21,16 @@ cp -r "${DIR}/lua" "${TARGET}/lua"
 cp "${DIR}/nvim-pack-lock.json" "${TARGET}/nvim-pack-lock.json"
 printf 'Copying new Neovim config...DONE\n'
 
-# Note: nvim-treesitter's :TSUpdate build step needs a C compiler and the
-# tree-sitter CLI to compile parsers. If those are missing, the affected
-# parsers fail silently and the rest of the sync (and this script) still
-# succeed.
+# nvim-treesitter compiles parsers with the tree-sitter CLI (>= 0.26.1) and a
+# C compiler.
 printf 'Installing Neovim plugins...\n'
-nvim --headless "+lua vim.pack.update(nil, { force = true, target = 'lockfile' })" "+TSUpdateSync" "+qa!"
+# Parsers built by the old nvim-treesitter master branch. main installs to
+# site/parser, but these stay on 'runtimepath' and still get loaded (e.g. a
+# tmux parser that main no longer ships queries for).
+TS_PLUGIN="${XDG_DATA_HOME:-${HOME}/.local/share}/nvim/site/pack/core/opt/nvim-treesitter"
+rm -rf "${TS_PLUGIN}/parser" "${TS_PLUGIN}/parser-info"
+nvim --headless "+lua vim.pack.update(nil, { force = true, target = 'lockfile' })" "+qa!"
+# Separate process: the update above can swap plugin code under modules that
+# this session already loaded.
+nvim --headless "+lua require('nvim-treesitter').update():wait(300000)" "+qa!"
 printf 'Installing Neovim plugins...DONE\n'

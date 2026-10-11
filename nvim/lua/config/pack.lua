@@ -17,7 +17,7 @@ end
 vim.pack.add({
   gh('maxmx03/solarized.nvim'),
   gh('nvim-tree/nvim-web-devicons'),
-  { src = gh('nvim-treesitter/nvim-treesitter'), version = 'master' },
+  { src = gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
   gh('neovim/nvim-lspconfig'),
   gh('stevearc/conform.nvim'),
   gh('nvim-tree/nvim-tree.lua'),
