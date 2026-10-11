@@ -3,7 +3,7 @@
 REPO_DIR="$(mktemp -d -t 'dot-config.XXXXXXXXXX')"
 
 cleanup() {
-    rm -rf "${REPO_DIR}"
+  rm -rf "${REPO_DIR}"
 }
 
 trap cleanup EXIT

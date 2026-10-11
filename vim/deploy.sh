@@ -1,11 +1,11 @@
 #!/bin/bash
 set -ex
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 printf 'Creating directory for old vimconfig...\n'
 if [ -d $HOME/old-vim-config ]; then
-    rm -rf $HOME/old-vim-config
+  rm -rf $HOME/old-vim-config
 fi
 mkdir $HOME/old-vim-config
 printf 'Creating directory for old vimconfig...DONE\n'
@@ -13,23 +13,23 @@ printf 'Old config will be stored in "%s"\n' "$HOME/old-vim-config"
 
 printf 'Copying old config...\n'
 if [ -a $HOME/.vimrc ]; then
-    cp $HOME/.vimrc $HOME/old-vim-config
+  cp $HOME/.vimrc $HOME/old-vim-config
 fi
 if [ -d $HOME/.vim ]; then
-    cp -r $HOME/.vim $HOME/old-vim-config
+  cp -r $HOME/.vim $HOME/old-vim-config
 fi
 printf 'Copying old config...DONE\n'
 
 if [ -a $HOME/.vimrc ]; then
-    printf 'Removing existing .vimrc \n'
-    rm $HOME/.vimrc
-    printf 'Removing existing .vimrc...DONE\n'
+  printf 'Removing existing .vimrc \n'
+  rm $HOME/.vimrc
+  printf 'Removing existing .vimrc...DONE\n'
 fi
 
 if [ -d $HOME/.vim ]; then
-    printf 'Removing existing .vim directory...\n'
-    rm -rf $HOME/.vim
-    printf 'Removing existing .vim directory...DONE\n'
+  printf 'Removing existing .vim directory...\n'
+  rm -rf $HOME/.vim
+  printf 'Removing existing .vim directory...DONE\n'
 fi
 
 printf 'Copying new .vimrc...\n'

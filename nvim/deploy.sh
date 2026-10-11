@@ -7,10 +7,10 @@ BACKUP="${HOME}/old-nvim-config"
 
 printf 'Backing up old Neovim config...\n'
 if [ -e "${BACKUP}" ]; then
-	rm -rf "${BACKUP}"
+  rm -rf "${BACKUP}"
 fi
 if [ -e "${TARGET}" ]; then
-	mv "${TARGET}" "${BACKUP}"
+  mv "${TARGET}" "${BACKUP}"
 fi
 printf 'Backing up old Neovim config...DONE\n'
 

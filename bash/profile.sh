@@ -1,8 +1,8 @@
 PLATFORM="$(uname)"
 if [[ "${PLATFORM}" == *Darwin* ]]; then
-    PS1='me@yazevnul-mac:\W\$ '
+  PS1='me@yazevnul-mac:\W\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 
 export LANG=en_US.UTF-8
@@ -20,11 +20,11 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
 if [[ "${PLATFORM}" == *Darwin* ]]; then
-    # For Homebrew
-    export PATH="/usr/local/bin:${PATH}"
+  # For Homebrew
+  export PATH="/usr/local/bin:${PATH}"
 
-    # For MacTeX
-    export PATH="/usr/texbin:${PATH}"
+  # For MacTeX
+  export PATH="/usr/texbin:${PATH}"
 fi
 
 export EDITOR=vim
