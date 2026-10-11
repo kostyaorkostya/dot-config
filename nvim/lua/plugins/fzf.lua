@@ -1,0 +1,16 @@
+local fzf = require('fzf-lua')
+fzf.setup({})
+
+local function map(lhs, picker, desc)
+  vim.keymap.set('n', lhs, fzf[picker], { desc = desc })
+end
+map('<leader>sf', 'files', 'Files')
+map('<leader>sg', 'live_grep', 'Grep')
+map('<leader>sw', 'grep_cword', 'Grep word under cursor')
+map('<leader>sb', 'buffers', 'Buffers')
+map('<leader>so', 'oldfiles', 'Recent files')
+map('<leader>ss', 'lsp_document_symbols', 'Symbols in file')
+map('<leader>sS', 'lsp_workspace_symbols', 'Symbols in project')
+map('<leader>sh', 'helptags', 'Help')
+map('<leader>sk', 'keymaps', 'Keymaps')
+map('<leader>sr', 'resume', 'Resume last search')

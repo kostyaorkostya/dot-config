@@ -25,6 +25,7 @@ vim.pack.add({
   gh('mhinz/vim-startify'),
   gh('rust-lang/rust.vim'),
   gh('folke/which-key.nvim'),
+  gh('ibhagwan/fzf-lua'),
 }, { confirm = false })
 
 for _, name in ipairs({
@@ -35,6 +36,7 @@ for _, name in ipairs({
   'tree',
   'tagbar',
   'which-key',
+  'fzf',
 }) do
   require('plugins.' .. name)
 end

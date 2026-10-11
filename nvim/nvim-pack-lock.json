@@ -4,6 +4,10 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "fzf-lua": {
+      "rev": "48d7c3db291a2c7c1825905c227a6bc81c83b837",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
     "nvim-lspconfig": {
       "rev": "c59fc922f718fa055f69f5f3bc888f23211571eb",
       "src": "https://github.com/neovim/nvim-lspconfig"
