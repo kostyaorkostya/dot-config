@@ -29,7 +29,7 @@ printf 'Installing Neovim plugins...\n'
 # tmux parser that main no longer ships queries for).
 TS_PLUGIN="${XDG_DATA_HOME:-${HOME}/.local/share}/nvim/site/pack/core/opt/nvim-treesitter"
 rm -rf "${TS_PLUGIN}/parser" "${TS_PLUGIN}/parser-info"
-nvim --headless "+lua vim.pack.update(nil, { force = true, target = 'lockfile' })" "+qa!"
+nvim --headless "+lua require('dotconfig.pack').prune()" "+lua vim.pack.update(nil, { force = true, target = 'lockfile' })" "+qa!"
 # Separate process: the update above can swap plugin code under modules that
 # this session already loaded.
 nvim --headless "+lua require('nvim-treesitter').update():wait(300000)" "+qa!"
