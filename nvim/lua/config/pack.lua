@@ -23,7 +23,6 @@ vim.pack.add({
   gh('nvim-tree/nvim-tree.lua'),
   gh('preservim/tagbar'),
   gh('mhinz/vim-startify'),
-  gh('rust-lang/rust.vim'),
   gh('folke/which-key.nvim'),
   gh('ibhagwan/fzf-lua'),
   gh('lewis6991/gitsigns.nvim'),

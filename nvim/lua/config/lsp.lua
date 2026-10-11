@@ -25,23 +25,14 @@ vim.lsp.config('lua_ls', {
 vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
-      diagnostics = {
-        enable = true,
+      check = {
+        command = 'clippy',
       },
       imports = {
         granularity = {
           group = 'module',
         },
         prefix = 'self',
-      },
-      cargo = {
-        allFeatures = true,
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true,
       },
     },
   },

@@ -29,10 +29,6 @@
       "rev": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
-    "rust.vim": {
-      "rev": "889b9a7515db477f4cb6808bef1769e53493c578",
-      "src": "https://github.com/rust-lang/rust.vim"
-    },
     "solarized.nvim": {
       "rev": "a8085e29883ddcfb39bd46197eb32ef00df05368",
       "src": "https://github.com/maxmx03/solarized.nvim"
